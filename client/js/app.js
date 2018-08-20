@@ -76,7 +76,7 @@ class EventsManager {
         form_data.append('end_hour', $('#end_hour').val())
         form_data.append('start_hour', $('#start_hour').val())
       }else {
-        form_data.append('end_date', "")
+        form_data.append('end_date', $('#start_date').val())
         form_data.append('end_hour', "")
         form_data.append('start_hour', "")
       }
@@ -105,10 +105,6 @@ class EventsManager {
                 end: $('#end_date').val()+" "+$('#end_hour').val()
               })
             }
-
-
-
-
           }else {
             alert(data.msg)
           }
@@ -148,7 +144,7 @@ class EventsManager {
     }
 
     actualizarEvento(evento) {
-        let id = evento.id,
+        let id = evento.id, //creo que aca va evento.eid
             start = moment(evento.start).format('YYYY-MM-DD HH:mm:ss'),
             end = moment(evento.end).format('YYYY-MM-DD HH:mm:ss'),
             form_data = new FormData(),

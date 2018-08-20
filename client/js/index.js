@@ -28,7 +28,7 @@ class Login {
       data: form_data,
       type: 'POST',
       success: function(php_response){
-        alert(php_response.acceso);
+        console.log(php_response.acceso);
         if (php_response.acceso == "OK") {
           window.location.href = 'main.html';
         }else {
