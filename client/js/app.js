@@ -1,11 +1,7 @@
-
-
-
 class EventsManager {
     constructor() {
         this.obtenerDataInicial()
     }
-
 
     obtenerDataInicial() {
         let url = '../server/getEvents.php'
@@ -19,6 +15,7 @@ class EventsManager {
           success: (data) =>{
             if (data.msg=="OK") {
               this.poblarCalendario(data.eventos)
+              console.log(data.eventos)
             }else {
               alert(data.msg)
               window.location.href = 'index.html';
@@ -28,7 +25,6 @@ class EventsManager {
             alert("error en la comunicación con el servidor");
           }
         })
-
     }
 
     poblarCalendario(eventos) {
@@ -38,7 +34,7 @@ class EventsManager {
         		center: 'title',
         		right: 'month,agendaWeek,basicDay'
         	},
-        	defaultDate: '2016-11-01',
+        	defaultDate: '2018-08-08',
         	navLinks: true,
         	editable: true,
         	eventLimit: true,

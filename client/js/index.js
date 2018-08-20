@@ -28,15 +28,21 @@ class Login {
       data: form_data,
       type: 'POST',
       success: function(php_response){
-        if (php_response.msg == "OK") {
+        alert(php_response.acceso);
+        if (php_response.acceso == "OK") {
           window.location.href = 'main.html';
         }else {
-          alert(php_response.msg);
+          alert(php_response.motivo);
         }
       },
       error: function(){
-        alert("error en la comunicación con el servidor");
+        alert("error en la comunicación con el servidor");     
+         
       }
     })
   }
 }
+
+
+
+
