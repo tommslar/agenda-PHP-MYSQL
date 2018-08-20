@@ -119,7 +119,7 @@ class EventsManager {
     eliminarEvento(event, jsEvent){
 
       var form_data = new FormData()
-      form_data.append('id', event.id)
+      form_data.append('id', event.eid)
       $.ajax({
         url: '../server/delete_event.php',
         dataType: "json",
@@ -131,6 +131,7 @@ class EventsManager {
         success: (data) =>{
           if (data.msg=="OK") {
             alert('Se ha eliminado el evento exitosamente')
+            window.location.href = 'main.html';
           }else {
             alert(data.msg)
           }
@@ -144,7 +145,7 @@ class EventsManager {
     }
 
     actualizarEvento(evento) {
-        let id = evento.id, //creo que aca va evento.eid
+        let id = evento.eid, //creo que aca va evento.eid
             start = moment(evento.start).format('YYYY-MM-DD HH:mm:ss'),
             end = moment(evento.end).format('YYYY-MM-DD HH:mm:ss'),
             form_data = new FormData(),
